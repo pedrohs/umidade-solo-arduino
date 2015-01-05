@@ -1,0 +1,94 @@
+html{
+	height: 100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #f3f3f3;
+}
+#topo {
+	width: 100%;
+	height: 560px;
+	overflow: hidden;
+	position: relative;
+	padding-top: 40px;
+	box-sizing: border-box;
+	background: #e5eecd; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #e5eecd 0%, #a1c24b 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e5eecd), color-stop(100%,#a1c24b)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #e5eecd 0%,#a1c24b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #e5eecd 0%,#a1c24b 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #e5eecd 0%,#a1c24b 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #e5eecd 0%,#a1c24b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eecd', endColorstr='#a1c24b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#planta {
+	width: 335px;
+	height: 478px;
+	background-image: url('/imgs/planta.png');	
+	margin: 0 auto;
+	position: relative;
+}
+#planta > div {
+	width: 124px;
+	height: 124px;
+	background-image: url('/imgs/balao.png');	
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 89px;
+	left: 367px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 24px;
+	color: #38bbff;
+	padding-top: 46px;
+}
+#conteudo {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+#canvas {
+	width: 1000px; !important
+	height: 300px;
+	padding: 10px;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(173,173,173,1);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(173,173,173,1);
+	box-shadow: 0px 0px 10px 0px rgba(173,173,173,1);
+}
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 24px;
+	color: #393939;
+	font-weight: 300;
+	text-decoration: none;
+	text-align: center;
+}
+#tab h1 {
+	margin: 0;
+}
+h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	color: #393939;
+	font-weight: 300;
+	text-decoration: none;
+	float: left;
+}
+#configTitulo {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#configTitulo > li {
+	display: inline;
+}
+.bootstrap-switch {
+	margin: 12px;
+}
+.input {
+	width: auto;
+}
+#rele > form {
+	display: none;
+}

@@ -4,6 +4,9 @@ socket.on('dados', function(dados){
 	$("#planta > div").text(dados);
 });
 
+var categories = [];
+var umidade = [];
+
 var opções = {
 	showScale: true,
 	datasetStroke : false,
@@ -11,31 +14,50 @@ var opções = {
 	scaleBeginAtZero: true
 }
 socket.on('dadosGrafico', function(data){
-	var lineChartData = {
-		labels : [],
-		datasets : [
-		{
-			label: "My First dataset",
-			fillColor : "rgba(93,206,89,0.2)",
-			strokeColor : "rgba(93,206,89,1)",
-			pointColor : "rgba(158,158,158,1)",
-			pointStrokeColor : "#fff",
-			pointHighlightFill : "#fff",
-			pointHighlightStroke : "rgba(220,220,220,1)",
-			data : []
-		}
-		]
 
-	};
 	var obj = jQuery.parseJSON(data);
+	categories = [];
+		umidade = [];
 	for (var i = 0; i < obj.length; i++) {
-		lineChartData.labels.push(obj[i].dia);
-		lineChartData.datasets[0].data.push(obj[i].umidade);
+		categories.push(obj[i].dia);
+		umidade.push(obj[i].umidade);
+		console.log(umidade);
 	};
 
-	var ctx = document.getElementById("canvas").getContext("2d");
-	var grafico = new Chart(ctx).Line(lineChartData, opções);
-	console.log(lineChartData);
+	$(function () {
+    $('#grafico').highcharts({
+        title: {
+            text: '',
+            x: -20 //center
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            title: {
+                text: 'Umidade (%)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Umidade',
+            data: umidade
+        }]
+    });
+});
 });
 
 

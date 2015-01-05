@@ -23,7 +23,6 @@ io.on('connection', function(socket){
 	socket.on('releConfig', function(dados){
 		var data = JSON.stringify(dados);
 		storage.setFile('./lib/configs/rele.json', data);
-		arduino.releConfig();
 	});
 });
 

@@ -19,14 +19,15 @@
 	<div id="conteudo">
 		<div class="tabpanel">
 			<ul id="tab" class="nav nav-tabs" role="tablist">
-				<li class="active" role="apresentaion"><a href="#grafico" aria-controls="grafico" role="tab" data-toggle="tab"><h1>Grafico</h1></a></li>
+				<li class="active" role="apresentaion"><a href="#tabGrafico" aria-controls="tabGrafico" role="tab" data-toggle="tab"><h1>Grafico</h1></a></li>
 				<li role="apresentaion"><a href="#configuracoes" aria-controls="configuracoes" role="tab" data-toggle="tab"><h1>Configurações</h1></a></li>
 			</ul>
 
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane fade in active" id="grafico">
+				<div role="tabpanel" class="tab-pane fade in active" id="tabGrafico">
 					<h1>Umidade do solo:</h1>
-					<canvas id="canvas" height="300" width="1000"></canvas>
+					<!--<canvas id="canvas" height="300" width="1000"></canvas>-->
+					<div id="grafico" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="configuracoes">
 					<ul id="configTitulo">
@@ -65,8 +66,9 @@
 			
 		</div><!--Fim tab-->
 	</div>
+	<script src="js/highcharts.js"></script>
+	<script src="js/themes/dark-unica.js"></script>
 	<script src="js/bootstrap-switch.min.js"></script>
-	<script src="js/Chart.min.js"></script>
 	<script src="js/bootstrap.js"></script>	
 	<script src="js/scripts.js"></script>
 </body>

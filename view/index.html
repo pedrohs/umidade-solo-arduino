@@ -31,7 +31,45 @@
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="configuracoes">
 					<ul id="configTitulo">
-						<li><h2>Definir disparo de relé - </h2></li>
+						<h2>Gravação de dados:</h2>
+						<form class="form-inline" id="setDados">
+							<div class="form-group">
+								<label for="minutos">Hora:</label>
+								<select id="selectHora" class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+									<option>18</option>
+									<option>19</option>
+									<option>20</option>
+									<option>21</option>
+									<option>22</option>
+									<option>23</option>
+									<option>24</option>
+								</select>
+								<label for="horas">Minuto:</label>
+								<input id="inputMinutos" class="form-control" type="number">
+								<label for="horas">Numero maximo de resultados:</label>
+								<input id="inputMaxDados" class="form-control" type="number">
+								<button class="btn btn-success">Salvar</button>
+							</div>
+						</form>
+				
+						<li><h2 id="releTitulo">Definir disparo de relé - </h2></li>
 						<li><input type="checkbox" name="releStade" checked></li>
 					</ul>
 					<div id="rele">

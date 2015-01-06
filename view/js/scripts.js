@@ -22,7 +22,6 @@ socket.on('releGetConfig', function(data){
 		$("[name='releStade']").bootstrapSwitch('state', false);
 	}
 });
-
 socket.on('dadosGrafico', function(data){
 
 	var obj = jQuery.parseJSON(data);
@@ -75,6 +74,15 @@ $(document).ready(function(){
 	$('#tab a').click(function (e) {
 		e.preventDefault()
 		$(this).tab('show')
+	});
+
+	$("#setDados").submit(function(){
+		var hora = $("#selectHora").val();
+		var minutos = $("#inputMinutos").val();
+		var maxDados = parseFloat($("#inputMaxDados").val());
+		socket.emit('setTime', {'hora': hora, 'minuto': minutos, 'maxDados': maxDados});
+
+		return false;
 	});
 
 	$("[name='releStade']").bootstrapSwitch('state', false);

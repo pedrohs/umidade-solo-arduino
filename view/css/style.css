@@ -72,7 +72,12 @@ h2 {
 	color: #393939;
 	font-weight: 300;
 	text-decoration: none;
+}
+#releTitulo {
 	float: left;
+}
+#inputMinutos, #porcetRele, #inputMaxDados{
+	width: 60px;
 }
 #configTitulo {
 	list-style-type: none;

@@ -1,12 +1,21 @@
-var five = require('johnny-five'),
-arduino = new five.Board(),
+var firmata = require('firmata'),
 async = require('async'),
-storage = require('./lib/storage.js'),
-util = require('./lib/util.js'),
-web = require('./web.js'),
-umidade,
-releConfig = storage.getFile('./lib/configs/rele.json', true);
+//storage = require('./lib/storage.js'),
+//util = require('./lib/util.js'),
+//web = require('./web.js'),
+umidade;
+//releConfig = storage.getFile('./lib/configs/rele.json', true);
 
+var board = new firmata.Board('/dev/cu.usbmodem1d111',function(){
+
+	setInterval(function(){
+		console.log(board.analogRead(0));
+	}, 300);
+
+});
+
+
+/*
 arduino.on("ready", function(){
 	console.log("Arduino pronto");
 
@@ -16,21 +25,22 @@ arduino.on("ready", function(){
 	});
 
 	sensor.on("data", function() {
-		umidade = map(this.value, 180, 1023, 100, 0);	
+		umidade = map(this.value, 180, 1023, 100, 0);
 		umidade = Math.ceil(umidade);
-		umidadePorc = umidade + "%"; 
+		umidadePorc = umidade + "%";
 		web.enviaDados(umidadePorc);
 		rele(umidade, false);
 	});
 	util.salvaDados(true);
 	rele(0, true);
 });
+*/
 
 function map(value, fromLow, fromHigh, toLow, toHigh) {
 	return (value - fromLow) * (toHigh - toLow) /
 	(fromHigh - fromLow) + toLow;
 };
-
+/*
 var rele;
 function rele(umidade, reload){
 	if(reload){
@@ -45,11 +55,13 @@ function rele(umidade, reload){
 		}
 	}
 }
-exports.getUmidade = function(){	
+exports.getUmidade = function(){
 	return umidade;
 }
-exports.reloadRele = function(){	
+exports.reloadRele = function(){
 	releConfig = storage.getFile('./lib/configs/rele.json', true);
 	console.log("rele recebido");
 	console.log(releConfig);
 }
+
+*/

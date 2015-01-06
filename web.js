@@ -18,8 +18,6 @@ server.listen(port, function(){
 	console.log("Servidor HTTP Online");
 });
 
-console.dir(storage);
-
 io.on('connection', function(socket){
 	var dados = storage.getFile('./lib/configs/dados.json');
 	socket.emit('dadosGrafico', dados);

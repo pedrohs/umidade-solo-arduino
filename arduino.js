@@ -1,11 +1,11 @@
 var five = require('johnny-five'),
 arduino = new five.Board(),
-fs = require('fs'),
 async = require('async'),
 storage = require('./lib/storage.js'),
 util = require('./lib/util.js'),
 web = require('./web.js'),
-umidade;
+umidade,
+releConfig = storage.getFile('./lib/configs/rele.json', true);
 
 arduino.on("ready", function(){
 	console.log("Arduino pronto");
@@ -14,32 +14,42 @@ arduino.on("ready", function(){
 		pin: "A0",
 		freq: 1000
 	});
-	var rele = new five.Pin(8);
 
-	async.series([
-		function(callback){
-			sensor.on("data", function() { //Aqui ele comeÃ§a a verificar uma porta do arduino e traz um valor que Ã© tratado
-				umidade = map(this.value, 180, 1023, 100, 0);	
-				umidade = Math.ceil(umidade);
-				util.umidade(umidade);
-				if(umidade < 70){
-					rele.high();
-				}else{
-					rele.low();
-				}
-				umidadePorc = umidade + "%"; //define o valor jÃ¡ tratado para uma variavel
-				web.enviaDados(umidadePorc);
-				callback(null);
-			});
-		},
-		function(callback){
-			util.salvaDados(true);
-			callback(null);
-		}
-		]);
+	sensor.on("data", function() {
+		umidade = map(this.value, 180, 1023, 100, 0);	
+		umidade = Math.ceil(umidade);
+		umidadePorc = umidade + "%"; 
+		web.enviaDados(umidadePorc);
+		rele(umidade, false);
+	});
+	util.salvaDados(true);
+	rele(0, true);
 });
 
 function map(value, fromLow, fromHigh, toLow, toHigh) {
 	return (value - fromLow) * (toHigh - toLow) /
 	(fromHigh - fromLow) + toLow;
 };
+
+var rele;
+function rele(umidade, reload){
+	if(reload){
+		releConfig = storage.getFile('./lib/configs/rele.json', true);
+		rele = new five.Pin(releConfig.portaRele);
+	}
+	if(releConfig.status){
+		if(umidade < releConfig.porcetRele){
+			rele.high();
+		}else{
+			rele.low();
+		}
+	}
+}
+exports.getUmidade = function(){	
+	return umidade;
+}
+exports.reloadRele = function(){	
+	releConfig = storage.getFile('./lib/configs/rele.json', true);
+	console.log("rele recebido");
+	console.log(releConfig);
+}

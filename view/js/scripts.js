@@ -13,6 +13,16 @@ var opções = {
 	scaleLabel: "<%=value%>%",
 	scaleBeginAtZero: true
 }
+socket.on('releGetConfig', function(data){
+	if(data.status){
+		$("[name='releStade']").bootstrapSwitch('state', true);
+		$("#portaRele").val(data.portaRele);
+		$("#porcetRele").val(data.porcetRele);
+	}else{
+		$("[name='releStade']").bootstrapSwitch('state', false);
+	}
+});
+
 socket.on('dadosGrafico', function(data){
 
 	var obj = jQuery.parseJSON(data);

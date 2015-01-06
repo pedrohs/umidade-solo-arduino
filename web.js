@@ -17,12 +17,17 @@ server.listen(port, function(){
 	console.log("Servidor HTTP Online");
 });
 io.on('connection', function(socket){
+
 	var dados = storage.getFile('./lib/configs/dados.json');
+	var releConfig = storage.getFile('./lib/configs/rele.json', true);
+
+	socket.emit('releGetConfig', releConfig);
 	socket.emit('dadosGrafico', dados);
 
 	socket.on('releConfig', function(dados){
 		var data = JSON.stringify(dados);
 		storage.setFile('./lib/configs/rele.json', data);
+		arduino.reloadRele();
 	});
 });
 
@@ -34,6 +39,5 @@ module.exports = {
 	enviaGrafico: function(){
 		var dados = storage.getFile('./lib/configs/dados.json');
 		io.emit('dadosGrafico', dados);
-		io.emit('graficoUpdate', {});
 	}
 }

@@ -9,6 +9,10 @@ $ cd umidade-solo-arduino
 $ npm install
 $ node app.js
 ```
+### Configuração do arduino
+
+- Abra a IDE do Arduino, selecione: File > Examples > Firmata > StandardFirmata.
+- Clique no botão Upload.
 
 ### Dependências utilizadas
 * [Johnny Five](https://github.com/rwaldron/johnny-five)

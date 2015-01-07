@@ -7,7 +7,6 @@
   "dependencies": {
     "cron": "^1.0.5",
     "express": "^4.10.7",
-    "firmata": "^0.4.0",
     "johnny-five": "^0.8.37",
     "moment": "^2.8.4",
     "socket.io": "^1.2.1"

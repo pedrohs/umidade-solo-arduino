@@ -5,8 +5,12 @@ board = new five.Board();
 
 board.on("ready", function() {
 
+  // When using the WiiChuck adapter with an UNO,
+  // these pins act as the Ground and Power lines.
+  // This will not work on a Leonardo, so these
+  // lines can be removed.
   new five.Pin("A2").low();
-  new five.Pin("A3").low();
+  new five.Pin("A3").high();
 
   // Create a new `nunchuk` hardware instance.
   nunchuk = new five.Wii.Nunchuk({

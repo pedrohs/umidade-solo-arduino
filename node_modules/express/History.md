@@ -1,3 +1,19 @@
+4.10.7 / 2015-01-04
+===================
+
+  * Fix `Allow` header for `OPTIONS` to not contain duplicate methods
+  * Fix incorrect "Request aborted" for `res.sendFile` when `HEAD` or 304
+  * deps: debug@~2.1.1
+  * deps: finalhandler@0.3.3
+    - deps: debug@~2.1.1
+    - deps: on-finished@~2.2.0
+  * deps: methods@~1.1.1
+  * deps: on-finished@~2.2.0
+  * deps: serve-static@~1.7.2
+    - Fix potential open redirect when mounted at root
+  * deps: type-is@~1.5.5
+    - deps: mime-types@~2.0.7
+
 4.10.6 / 2014-12-12
 ===================
 

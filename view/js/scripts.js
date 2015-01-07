@@ -1,11 +1,11 @@
 var socket = io();
-var estadoRele = false;
+var categories = [];
+var umidade = [];
 socket.on('dados', function(dados){
 	$("#planta > div").text(dados);
 });
 
-var categories = [];
-var umidade = [];
+
 
 var opções = {
 	showScale: true,
@@ -22,6 +22,7 @@ socket.on('releGetConfig', function(data){
 		$("[name='releStade']").bootstrapSwitch('state', false);
 	}
 });
+/*
 socket.on('dadosGrafico', function(data){
 
 	var obj = jQuery.parseJSON(data);
@@ -68,7 +69,7 @@ socket.on('dadosGrafico', function(data){
     });
 });
 });
-
+*/
 
 $(document).ready(function(){
 	$('#tab a').click(function (e) {
@@ -101,3 +102,4 @@ $(document).ready(function(){
 		}
 	});
 });
+

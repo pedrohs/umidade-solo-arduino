@@ -1,10 +1,10 @@
 var five = require('johnny-five');
 var arduino = new five.Board();
-var util = require('./lib/util');
 var storage = require('./lib/storage');
-var web = require('./web');
 var umidade;
 var releTime;
+var releConfig = storage.getFile('./lib/configs/rele.json', true);
+var rele;
 
 arduino.on('ready', function(){
 	console.log("Arduino Pronto");
@@ -14,10 +14,21 @@ arduino.on('ready', function(){
 		freq: 250
 	});
 
+	if(releConfig.status){
+		rele = new five.Pin(releConfig.portaRele);
+	}
+
 	sensor.on('data', function(){
 		setUmidade(this.value);
+		if(releConfig.status){
+			if(umidade < releConfig.porcetRele){
+				rele.high();
+			}else{
+				rele.low();
+			}
+		}
 	});
-	rele();
+	util.rodarCron();
 });
 
 function setUmidade(value){
@@ -32,19 +43,13 @@ function map(value, fromLow, fromHigh, toLow, toHigh) {
 	(fromHigh - fromLow) + toLow;
 }
 
-function rele(){
-	var releConfig = storage.getFile('./lib/configs/rele.json', true);
-	var rele;
-	if(releConfig.status){
-		rele = new five.Pin(releConfig.portaRele);
-		releTime = setInterval(function(){
-			if(umidade < releConfig.porcetRele){
-				rele.high();
-			}else{
-				rele.low();
-			}
-		}, 1000);
-	}
+function relay(){
+	releConfig = storage.getFile('./lib/configs/rele.json', true);
+	rele.query(function(state) {
+		if(state.value == 1){
+			rele.low();
+		}
+	});
 }
 
 module.exports = {
@@ -52,6 +57,10 @@ module.exports = {
 		return umidade;
 	},
 	rele: function(){
-		rele();
+		relay();
+		console.log("Rele acionado");
 	}
 }
+
+var web = require('./web');
+var util = require('./lib/util.js');

@@ -5,14 +5,13 @@ socket.on('dados', function(dados){
 	$("#planta > div").text(dados);
 });
 
-
-
 var opções = {
 	showScale: true,
 	datasetStroke : false,
 	scaleLabel: "<%=value%>%",
 	scaleBeginAtZero: true
 }
+
 socket.on('releGetConfig', function(data){
 	if(data.status){
 		$("[name='releStade']").bootstrapSwitch('state', true);
@@ -22,7 +21,7 @@ socket.on('releGetConfig', function(data){
 		$("[name='releStade']").bootstrapSwitch('state', false);
 	}
 });
-/*
+
 socket.on('dadosGrafico', function(data){
 
 	var obj = jQuery.parseJSON(data);
@@ -69,7 +68,7 @@ socket.on('dadosGrafico', function(data){
     });
 });
 });
-*/
+
 
 $(document).ready(function(){
 	$('#tab a').click(function (e) {
@@ -93,7 +92,7 @@ $(document).ready(function(){
 			$("#formRele").submit(function(){
 				var portaRele = $("#portaRele").val();
 				var porcetRele = $("#porcetRele").val();
-
+				console.log(porcetRele);
 				socket.emit('releConfig', {'status': true, 'portaRele': portaRele, 'porcetRele': porcetRele});
 				return false;
 			});

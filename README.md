@@ -1,4 +1,4 @@
-# Umidade do solo com arduino e node.js
+# Controlando umidade do solo com arduino e node.js
 Sistema simples que pega informações do solo usando sensor de umidade higrômetro com arduino uno.
 
 ### Instalação
@@ -26,7 +26,7 @@ $ node app.js
 * [Socket.io](https://github.com/Automattic/socket.io)
 * [Moment](https://github.com/moment/moment)
 
-### Imagen
+### Imagem
 ![Painel de Controle](http://oi62.tinypic.com/16hnh8x.jpg)
 
 ### FAQ

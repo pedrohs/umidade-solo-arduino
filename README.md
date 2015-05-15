@@ -33,8 +33,8 @@ $ node app.js
 * Para acessar o painel:
   Depois de iniciar o servidor acesse pelo navegador: http://localhost:3000/
 
-###
-* Atualização! foi removido o antigo sistema de salvamento das informações e substituído pelo [neDB](https://github.com/louischatriot/nedb)
+### Atualização
+* Foi removido o antigo sistema de salvamento das informações e substituído pelo [neDB](https://github.com/louischatriot/nedb)
 
 ### Contribuidores
 * [gpedro](https://github.com/gpedro)

@@ -27,7 +27,7 @@ $ node app.js
 * [Moment](https://github.com/moment/moment)
 
 ### Imagen
-![Painel de Controle](http://i61.tinypic.com/2agw3lz.png)
+![Painel de Controle](http://oi62.tinypic.com/16hnh8x.jpg)
 
 ### FAQ
 * Para acessar o painel:

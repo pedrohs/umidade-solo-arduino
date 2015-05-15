@@ -1,14 +1,30 @@
 {
   "name": "umidade-solo",
-  "version": "1.0.0",
-  "description": "mede informações do solo com arduino",
-  "main": "arduino.js",
+  "version": "1.0.2",
+  "description": "Exibe dados da umidade do solo com arduino e node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pedrohs/umidade-solo-arduino.git"
+  },
   "author": "Pedro H.S",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedrohs/umidade-solo-arduino/issues"
+  },
+  "homepage": "https://github.com/pedrohs/umidade-solo-arduino",
   "dependencies": {
-    "cron": "^1.0.5",
-    "express": "^4.10.7",
-    "johnny-five": "^0.8.37",
-    "moment": "^2.8.4",
-    "socket.io": "^1.2.1"
+    "async": "^0.9.0",
+    "connect": "^3.3.5",
+    "connect-route": "^0.1.5",
+    "cron": "^1.0.9",
+    "johnny-five": "^0.8.74",
+    "moment": "^2.10.3",
+    "nedb": "^1.1.2",
+    "serve-static": "^1.9.3",
+    "socket.io": "^1.3.5"
   }
 }

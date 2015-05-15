@@ -1,0 +1,28 @@
+{
+  "name": "umidade-solo",
+  "version": "1.0.2",
+  "homepage": "https://github.com/pedrohs/umidade-solo-arduino",
+  "authors": [
+    "Pedro HS <9.pedro.deoliveira@gmail.com>"
+  ],
+  "description": "Exibe dados da umidade do solo com arduino e node.js",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "front/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "Chart.js": "~1.0.2",
+    "bootstrap": "~3.3.4",
+    "bootstrap-switch": "~3.3.2"
+  }
+}

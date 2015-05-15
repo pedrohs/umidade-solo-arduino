@@ -7,6 +7,7 @@ Sistema simples que pega informações do solo usando sensor de umidade higrôme
 $ git clone https://github.com/pedrohs/umidade-solo-arduino.git
 $ cd umidade-solo-arduino
 $ npm install
+$ bower install
 $ node app.js
 ```
 ### Configuração do arduino
@@ -17,7 +18,11 @@ $ node app.js
 ### Dependências utilizadas
 * [Johnny Five](https://github.com/rwaldron/johnny-five)
 * [Cron](https://github.com/ncb000gt/node-cron)
-* [Express](https://github.com/strongloop/express)
+* [Async](https://github.com/caolan/async)
+* [Connect](https://github.com/senchalabs/connect)
+* [Connect-route](https://github.com/baryshev/connect-route)
+* [neDB](https://github.com/louischatriot/nedb)
+* [serve-static](https://github.com/expressjs/serve-static)
 * [Socket.io](https://github.com/Automattic/socket.io)
 * [Moment](https://github.com/moment/moment)
 
@@ -27,6 +32,9 @@ $ node app.js
 ### FAQ
 * Para acessar o painel:
   Depois de iniciar o servidor acesse pelo navegador: http://localhost:3000/
+
+###
+* Atualização! foi removido o antigo sistema de salvamento das informações e substituído pelo [neDB](https://github.com/louischatriot/nedb)
 
 ### Contribuidores
 * [gpedro](https://github.com/gpedro)

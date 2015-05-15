@@ -3,18 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Umidade do Solo</title>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
-	<script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
-	<script src="js/jquery-2.1.3.min.js"></script>
 </head>
 <body>
 	<div id="topo">
 		<div id="planta">
-			<div>75%</div>
-		</div>		
+			<div>0%</div>
+		</div>
 	</div>
 	<div id="conteudo">
 		<div class="tabpanel">
@@ -26,8 +20,7 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane fade in active" id="tabGrafico">
 					<h1>Umidade do solo:</h1>
-					<!--<canvas id="canvas" height="300" width="1000"></canvas>-->
-					<div id="grafico" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+					<canvas id="grafico" width="400" height="400"></canvas>
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="configuracoes">
 					<ul id="configTitulo">
@@ -68,12 +61,11 @@
 								<button class="btn btn-success">Salvar</button>
 							</div>
 						</form>
-				
 						<li><h2 id="releTitulo">Definir disparo de relé - </h2></li>
 						<li><input type="checkbox" name="releStade" checked></li>
 					</ul>
 					<div id="rele">
-						<form id="formRele">
+						<form class="form-inline" id="formRele">
 							<div class="form-group">
 								<label for="portaRele">Porta relé:</label>
 								<select id="portaRele" class="form-control input">
@@ -99,15 +91,18 @@
 						</form>
 					</div>
 				</div>
-				
 			</div><!--Fim tab content-->
-			
 		</div><!--Fim tab-->
 	</div>
-	<script src="js/highcharts.js"></script>
-	<script src="js/themes/dark-unica.js"></script>
-	<script src="js/bootstrap-switch.min.js"></script>
-	<script src="js/bootstrap.js"></script>	
-	<script src="js/scripts.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css"/>
+	<script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/Chart.js/Chart.js"></script>
+	<script src="/bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/js/app.js"></script>
 </body>
 </html>

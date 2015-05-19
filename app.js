@@ -85,7 +85,7 @@ io.on('connection', function(socket){
 
 	socket.on('rele config', function(releConfig){
 		if(releConfig.status){
-			db.update({type: 'ConfigRele'}, {type: 'ConfigRele', status: releConfig.status, porta: releConfig.porta, porcent: releConfig.porcent}, function(err){
+			db.update({type: 'ConfigRele'}, {$set: {status: releConfig.status, porta: releConfig.porta, porcent: releConfig.porcent}}, function(err){
 				if(err){return console.log(err)};
 				db.findOne({type: 'ConfigRele'}, function(err, data){
 					if(err){return console.log(err)};
@@ -93,7 +93,7 @@ io.on('connection', function(socket){
 				});
 			});
 		}else{
-			db.update({type: 'ConfigRele'}, {type: 'ConfigRele', status: releConfig.status}, {}, function(err){
+			db.update({type: 'ConfigRele'}, {$set: {status: releConfig.status}}, {}, function(err){
 				if(err){return console.log(err)};
 				db.findOne({type: 'ConfigRele'}, function(err, data){
 					if(err){return console.log(err)};
